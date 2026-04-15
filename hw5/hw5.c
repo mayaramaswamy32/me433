@@ -208,10 +208,13 @@ void drawLine(int x0, int y0, int x1, int y1) {
     int err = dx+dy;
     while (1) {
         ssd1306_drawPixel(x0, y0, 1);
-        if (x0==x1 && y0==y1) break;
+        if (x0==x1 && y0==y1) {
+            break;}
         int e2 = 2*err;
-        if (e2 >= dy) { err += dy; x0 += sx; }
-        if (e2 <= dx) { err += dx; y0 += sy; }
+        if (e2 >= dy){ 
+            err += dy; x0 += sx;}
+        if (e2 <= dx){ 
+            err += dx; y0 += sy;}
     }
 }
 void drawChar(uint16_t x, uint16_t y, char letter){
