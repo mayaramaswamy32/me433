@@ -20,6 +20,7 @@ void heartbeat();
 int main()
 {
     stdio_init_all();
+    printf("hello\n");
 
     // I2C Initialisation. Using it at 400Khz.
     i2c_init(I2C_PORT, 1700*1000);

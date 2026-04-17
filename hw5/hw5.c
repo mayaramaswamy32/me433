@@ -95,6 +95,9 @@ int main()
     gpio_pull_up(I2C_SDA_IMU);
     gpio_pull_up(I2C_SCL_IMU);
 
+    ssd1306_setup();
+    ssd1306_clear();
+    ssd1306_update();
     //heartbeat
     gpio_init(LED);
     gpio_set_dir(LED, 1);
@@ -118,9 +121,6 @@ int main()
     adc_select_input(0);
 
 
-    ssd1306_setup();
-    ssd1306_clear();
-    ssd1306_update();
 
 
     // For more examples of I2C use see https://github.com/raspberrypi/pico-examples/tree/master/i2c
@@ -199,7 +199,6 @@ void mpu6050_read_all(int16_t *ax, int16_t *ay, int16_t *az, int16_t *temp, int1
     *gy = (int16_t)(buf[10]<< 8|buf[11]);
     *gz = (int16_t)(buf[12]<< 8|buf[13]);
 }
-
 
 void drawLine(int x0, int y0, int x1, int y1) {
     //! the bresenham implementation
